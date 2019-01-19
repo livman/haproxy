@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  app1:
+    image: brandon26/php-apache-livman:0.1
+    ports:
+      - 81:80
+  
+  app2:
+    image: brandon26/php-apache-livman:0.1
+    ports:
+      - 82:80
+
+  haproxy:
+    image: haproxy
+    ports:
+      - 80:80
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+
+
